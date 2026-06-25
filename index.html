@@ -1,0 +1,1052 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Legión Digital — Fast. Secure. Private.</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111111;
+    --border: #1e1e1e;
+    --accent: #00ff88;
+    --accent2: #ff3c3c;
+    --muted: #444;
+    --text: #e8e8e8;
+    --text-dim: #888;
+    --mono: 'Space Mono', monospace;
+    --sans: 'Syne', sans-serif;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--sans);
+    overflow-x: hidden;
+    line-height: 1.6;
+  }
+
+  /* GRAIN OVERLAY */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    z-index: 9999;
+    opacity: 0.5;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.2rem 3rem;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .logo {
+    font-family: var(--mono);
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--accent);
+    letter-spacing: -0.02em;
+  }
+
+  .logo span { color: var(--text-dim); }
+
+  nav ul {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+  }
+
+  nav a {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+
+  nav a:hover { color: var(--accent); }
+
+  .nav-cta {
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    padding: 0.5rem 1.2rem;
+    border: 1px solid var(--accent);
+    color: var(--accent) !important;
+    border-radius: 2px;
+    transition: background 0.2s !important;
+  }
+
+  .nav-cta:hover { background: var(--accent) !important; color: var(--bg) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    place-items: center;
+    padding: 8rem 3rem 4rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(0,255,136,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,255,136,0.03) 1px, transparent 1px);
+    background-size: 60px 60px;
+    pointer-events: none;
+  }
+
+  .hero-glow {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0,255,136,0.06) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+    pointer-events: none;
+  }
+
+  .hero-content {
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    max-width: 900px;
+  }
+
+  .hero-tag {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--accent);
+    border: 1px solid rgba(0,255,136,0.3);
+    padding: 0.35rem 1rem;
+    border-radius: 2px;
+    margin-bottom: 2rem;
+    animation: fadeDown 0.8s ease both;
+  }
+
+  .hero h1 {
+    font-size: clamp(3rem, 8vw, 7rem);
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    margin-bottom: 1.5rem;
+    animation: fadeDown 0.8s ease 0.1s both;
+  }
+
+  .hero h1 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .hero h1 .strike {
+    position: relative;
+    color: var(--text-dim);
+  }
+
+  .hero h1 .strike::after {
+    content: '';
+    position: absolute;
+    left: 0; right: 0;
+    top: 50%;
+    height: 3px;
+    background: var(--accent2);
+  }
+
+  .hero-sub {
+    font-size: 1.1rem;
+    color: var(--text-dim);
+    max-width: 560px;
+    margin: 0 auto 3rem;
+    line-height: 1.8;
+    animation: fadeDown 0.8s ease 0.2s both;
+  }
+
+  .hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    animation: fadeDown 0.8s ease 0.3s both;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: var(--bg);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    font-weight: 700;
+    padding: 0.9rem 2rem;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: opacity 0.2s, transform 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { opacity: 0.85; transform: translateY(-1px); }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    padding: 0.9rem 2rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: border-color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* PAIN SECTION */
+  .pain {
+    padding: 6rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 1rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    margin-bottom: 3rem;
+  }
+
+  .pain-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5px;
+    background: var(--border);
+    border: 1px solid var(--border);
+  }
+
+  .pain-card {
+    background: var(--surface);
+    padding: 2rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+
+  .pain-card:hover { background: #161616; }
+
+  .pain-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 3px;
+    height: 0;
+    background: var(--accent);
+    transition: height 0.3s;
+  }
+
+  .pain-card:hover::before { height: 100%; }
+
+  .pain-icon {
+    font-size: 1.8rem;
+    margin-bottom: 1rem;
+    display: block;
+  }
+
+  .pain-card h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  .pain-card p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .pain-quote {
+    margin-top: 1rem;
+    padding: 0.75rem;
+    background: rgba(0,255,136,0.04);
+    border-left: 2px solid var(--accent);
+    font-family: var(--mono);
+    font-size: 0.72rem;
+    color: var(--accent);
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* SERVICES */
+  .services {
+    padding: 6rem 3rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .services-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .service-item {
+    position: relative;
+  }
+
+  .service-number {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+  }
+
+  .service-item h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .service-item p {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    line-height: 1.7;
+  }
+
+  .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-top: 1rem;
+  }
+
+  .tag {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    padding: 0.25rem 0.6rem;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    color: var(--text-dim);
+    border-radius: 2px;
+    letter-spacing: 0.05em;
+  }
+
+  /* PROCESS */
+  .process {
+    padding: 6rem 3rem;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    margin-top: 3rem;
+    position: relative;
+  }
+
+  .process-steps::before {
+    content: '';
+    position: absolute;
+    top: 2rem;
+    left: 12.5%;
+    right: 12.5%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  }
+
+  .step {
+    padding: 0 1.5rem;
+    text-align: center;
+  }
+
+  .step-num {
+    width: 4rem;
+    height: 4rem;
+    background: var(--bg);
+    border: 1px solid var(--accent);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--accent);
+    margin: 0 auto 1.5rem;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step h3 {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .step p {
+    font-size: 0.78rem;
+    color: var(--text-dim);
+    line-height: 1.6;
+  }
+
+  /* PRICING */
+  .pricing {
+    padding: 6rem 3rem;
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .pricing-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--border);
+    margin-top: 3rem;
+    border: 1px solid var(--border);
+  }
+
+  .price-card {
+    background: var(--surface);
+    padding: 2.5rem;
+    position: relative;
+  }
+
+  .price-card.featured {
+    background: #0d1a12;
+  }
+
+  .price-badge {
+    display: inline-block;
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--bg);
+    background: var(--accent);
+    padding: 0.2rem 0.6rem;
+    margin-bottom: 1.5rem;
+    border-radius: 2px;
+  }
+
+  .price-name {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 0.75rem;
+  }
+
+  .price-amount {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1;
+    margin-bottom: 0.25rem;
+  }
+
+  .price-amount span {
+    font-size: 1rem;
+    font-weight: 400;
+    color: var(--text-dim);
+    vertical-align: super;
+    font-family: var(--mono);
+  }
+
+  .price-note {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    margin-bottom: 2rem;
+  }
+
+  .price-features {
+    list-style: none;
+    margin-bottom: 2rem;
+  }
+
+  .price-features li {
+    font-size: 0.85rem;
+    color: var(--text-dim);
+    padding: 0.5rem 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .price-features li::before {
+    content: '→';
+    color: var(--accent);
+    font-family: var(--mono);
+    font-size: 0.8rem;
+    flex-shrink: 0;
+  }
+
+  /* PAYMENT */
+  .payment-row {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border);
+    flex-wrap: wrap;
+  }
+
+  .payment-label {
+    font-family: var(--mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+
+  .payment-badge {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    padding: 0.3rem 0.7rem;
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text-dim);
+  }
+
+  .payment-badge.crypto { border-color: #f7931a44; color: #f7931a; }
+  .payment-badge.paypal { border-color: #009cde44; color: #009cde; }
+  .payment-badge.usdt { border-color: #26a17b44; color: #26a17b; }
+
+  /* CTA */
+  .cta-section {
+    padding: 8rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .cta-glow {
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%);
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+  }
+
+  .cta-section h2 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .cta-section h2 em {
+    font-style: normal;
+    color: var(--accent);
+  }
+
+  .cta-section p {
+    font-size: 1rem;
+    color: var(--text-dim);
+    margin-bottom: 3rem;
+    position: relative;
+  }
+
+  /* FOOTER */
+  footer {
+    padding: 2rem 3rem;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  footer p {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    letter-spacing: 0.05em;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .footer-links a {
+    font-family: var(--mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .footer-links a:hover { color: var(--accent); }
+
+  /* TICKER */
+  .ticker {
+    background: var(--accent);
+    color: var(--bg);
+    padding: 0.6rem 0;
+    overflow: hidden;
+    white-space: nowrap;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .ticker-inner {
+    display: inline-flex;
+    animation: ticker 30s linear infinite;
+    gap: 0;
+  }
+
+  .ticker-inner span {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 0 2rem;
+  }
+
+  .ticker-inner .sep {
+    color: rgba(0,0,0,0.3);
+    padding: 0;
+  }
+
+  /* STATS */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  .stat {
+    background: var(--bg);
+    padding: 2rem;
+    text-align: center;
+  }
+
+  .stat-num {
+    font-size: 3rem;
+    font-weight: 800;
+    letter-spacing: -0.04em;
+    color: var(--accent);
+    line-height: 1;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    color: var(--text-dim);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-top: 0.5rem;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes ticker {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    nav ul { display: none; }
+    .hero { padding: 6rem 1.5rem 3rem; }
+    .pain, .process, .pricing-inner, .services-inner { padding-left: 1.5rem; padding-right: 1.5rem; }
+    .process-steps { grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+    .process-steps::before { display: none; }
+    .stats { grid-template-columns: 1fr; }
+    footer { flex-direction: column; text-align: center; }
+  }
+
+  /* TERMINAL BLOCK */
+  .terminal {
+    background: #0a0a0a;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1.5rem;
+    font-family: var(--mono);
+    font-size: 0.78rem;
+    line-height: 2;
+    margin-top: 2rem;
+    text-align: left;
+  }
+
+  .terminal .line { display: block; }
+  .terminal .prompt { color: var(--accent); }
+  .terminal .cmd { color: var(--text); }
+  .terminal .out { color: var(--text-dim); }
+  .terminal .success { color: var(--accent); }
+  .terminal .error { color: var(--accent2); }
+
+</style>
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>Website Security</span><span class="sep">✦</span>
+    <span>VPS Setup</span><span class="sep">✦</span>
+    <span>Privacy Infrastructure</span><span class="sep">✦</span>
+    <span>MVP in 72h</span><span class="sep">✦</span>
+    <span>PayPal & Crypto</span><span class="sep">✦</span>
+    <span>100% Remote</span><span class="sep">✦</span>
+    <span>Website Security</span><span class="sep">✦</span>
+    <span>VPS Setup</span><span class="sep">✦</span>
+    <span>Privacy Infrastructure</span><span class="sep">✦</span>
+    <span>MVP in 72h</span><span class="sep">✦</span>
+    <span>PayPal & Crypto</span><span class="sep">✦</span>
+    <span>100% Remote</span><span class="sep">✦</span>
+  </div>
+</div>
+
+<!-- NAV -->
+<nav>
+  <div class="logo">leg<span>/</span>ion</div>
+  <ul>
+    <li><a href="#pain">Problems</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#pricing">Pricing</a></li>
+    <li><a href="https://wa.me/15722081823?text=Hi,%20I%20want%20a%20free%20discovery%20call" class="nav-cta">Book a Call</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-content">
+    <div class="hero-tag">⚡ Available now — Remote, global</div>
+    <h1>I fix what your<br><span class="strike">last dev</span><br><em>couldn't.</em></h1>
+    <p class="hero-sub">
+      VPS setup, website security, and fast MVPs for founders who need it done right — not just done. Pay with crypto or PayPal.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Book Free Discovery Call →</a>
+      <a href="#pain" class="btn-ghost">See if this is for you</a>
+    </div>
+  </div>
+</section>
+
+<!-- PAIN POINTS -->
+<section class="pain" id="pain">
+  <p class="section-label">// the real problem</p>
+  <h2 class="section-title">Sound familiar?</h2>
+
+  <div class="pain-grid">
+    <div class="pain-card">
+      <span class="pain-icon">🔓</span>
+      <h3>Your site got hacked</h3>
+      <p>Malware, redirects to spam sites, Google blacklist. Your host wants $200 for "cleanup" with no guarantee it sticks.</p>
+      <div class="pain-quote">"I spent a frantic weekend deleting files and the hackers kept coming back through backdoors."</div>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🐢</span>
+      <h3>Website is painfully slow</h3>
+      <p>3+ second load times. Google is penalizing your rankings. Customers bounce before they even see your offer.</p>
+      <div class="pain-quote">"Sometimes it loads fine, but other times it just doesn't open on the first try."</div>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">💔</span>
+      <h3>Broken on mobile</h3>
+      <p>Your desktop site looks great. Pull it up on a phone and it's a disaster. You're losing half your traffic.</p>
+      <div class="pain-quote">"I have a portfolio template but the mobile version is horrible. I don't know what I did wrong."</div>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🖥️</span>
+      <h3>VPS you can't control</h3>
+      <p>You wanted to self-host for cost or privacy. Now you're lost in configs, nginx errors, and SSH sessions at 2am.</p>
+      <div class="pain-quote">"I'm struggling to get it to work. Completely lost with the server setup."</div>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">👁️</span>
+      <h3>Privacy & surveillance concerns</h3>
+      <p>You want to degoogle, self-host email, or build infrastructure that doesn't phone home to Big Tech.</p>
+      <div class="pain-quote">"I need a private alternative. I don't trust my current provider with my data."</div>
+    </div>
+    <div class="pain-card">
+      <span class="pain-icon">🚀</span>
+      <h3>Idea stuck in your head</h3>
+      <p>You have a product idea but no tech co-founder. You need an MVP fast to validate before you invest more.</p>
+      <div class="pain-quote">"I need something working I can show investors next month, not a 6-month dev cycle."</div>
+    </div>
+  </div>
+
+  <div class="stats">
+    <div class="stat">
+      <div class="stat-num">72h</div>
+      <div class="stat-label">Average MVP delivery</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">$0</div>
+      <div class="stat-label">Cost for discovery call</div>
+    </div>
+    <div class="stat">
+      <div class="stat-num">3×</div>
+      <div class="stat-label">Cheaper than agency rates</div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services" id="services">
+  <div class="services-inner">
+    <p class="section-label">// what I do</p>
+    <h2 class="section-title">Services</h2>
+
+    <div class="services-grid">
+      <div class="service-item">
+        <div class="service-number">01 —</div>
+        <h3>Website Rescue</h3>
+        <p>Hacked site, broken layout, Google penalty. I diagnose, clean, and harden it. Back online within 24 hours.</p>
+        <div class="service-tags">
+          <span class="tag">WordPress</span>
+          <span class="tag">Malware removal</span>
+          <span class="tag">SSL</span>
+          <span class="tag">Hardening</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-number">02 —</div>
+        <h3>VPS Setup & Management</h3>
+        <p>From blank droplet to production server. Nginx, SSL, Docker, firewalls, backups — configured and documented.</p>
+        <div class="service-tags">
+          <span class="tag">Ubuntu</span>
+          <span class="tag">Nginx</span>
+          <span class="tag">Docker</span>
+          <span class="tag">Cloudflare</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-number">03 —</div>
+        <h3>Privacy Infrastructure</h3>
+        <p>Self-hosted email, VPN, analytics, and storage. Your data, your servers, zero Big Tech dependency.</p>
+        <div class="service-tags">
+          <span class="tag">Mailcow</span>
+          <span class="tag">WireGuard</span>
+          <span class="tag">Plausible</span>
+          <span class="tag">Nextcloud</span>
+        </div>
+      </div>
+      <div class="service-item">
+        <div class="service-number">04 —</div>
+        <h3>MVP Development</h3>
+        <p>From your idea to a working product in days. Landing page, web app, or automation — scoped tight, built fast.</p>
+        <div class="service-tags">
+          <span class="tag">React</span>
+          <span class="tag">Node.js</span>
+          <span class="tag">AI-powered</span>
+          <span class="tag">72h delivery</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section class="process" id="process">
+  <p class="section-label">// how it works</p>
+  <h2 class="section-title">Simple process,<br>fast results.</h2>
+
+  <div class="process-steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <h3>Discovery Call</h3>
+      <p>30 min, free. You explain the problem. I tell you exactly how I'd fix it and what it'll cost.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <h3>Proposal</h3>
+      <p>Scoped proposal within 24h. Fixed price, clear deliverables. No hourly billing surprises.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <h3>Build & Deliver</h3>
+      <p>I work. You get updates. Delivery in agreed timeline — usually 24–72h for urgent fixes.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <h3>Handoff</h3>
+      <p>Full documentation. Everything you need to maintain it yourself — or keep me on retainer.</p>
+    </div>
+  </div>
+
+  <!-- TERMINAL -->
+  <div class="terminal">
+    <span class="line"><span class="prompt">$ </span><span class="cmd">diagnose --site yoursite.com</span></span>
+    <span class="line"><span class="out">→ Scanning for malware...</span></span>
+    <span class="line"><span class="error">✗ Found: 3 infected files in /wp-content/uploads/</span></span>
+    <span class="line"><span class="error">✗ Google Blacklist: ACTIVE</span></span>
+    <span class="line"><span class="out">→ Checking server configuration...</span></span>
+    <span class="line"><span class="error">✗ SSL: expires in 2 days</span></span>
+    <span class="line"><span class="error">✗ Firewall: not configured</span></span>
+    <span class="line"><span class="out">→ Estimated fix time: 4–6 hours</span></span>
+    <span class="line"><span class="success">✓ Ready to start. Book a call to confirm scope.</span></span>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing" id="pricing">
+  <div class="pricing-inner">
+    <p class="section-label">// investment</p>
+    <h2 class="section-title">Transparent pricing.<br>No surprises.</h2>
+
+    <div class="pricing-grid">
+      <div class="price-card">
+        <div class="price-name">Quick Fix</div>
+        <div class="price-amount"><span>$</span>49</div>
+        <div class="price-note">one-time · delivered in 24h</div>
+        <ul class="price-features">
+          <li>Single issue diagnosis & fix</li>
+          <li>Mobile responsiveness fix</li>
+          <li>SSL setup</li>
+          <li>Speed optimization (basic)</li>
+          <li>1 week follow-up support</li>
+        </ul>
+        <a href="#contact" class="btn-ghost" style="width:100%;text-align:center;display:block;">Get started</a>
+      </div>
+
+      <div class="price-card featured">
+        <div class="price-badge">Most Popular</div>
+        <div class="price-name">Site Rescue + Hardening</div>
+        <div class="price-amount"><span>$</span>149</div>
+        <div class="price-note">one-time · delivered in 48h</div>
+        <ul class="price-features">
+          <li>Full malware removal & cleanup</li>
+          <li>Google blacklist removal</li>
+          <li>Firewall + security hardening</li>
+          <li>Backup system configured</li>
+          <li>VPS optimization</li>
+          <li>30-day guarantee</li>
+        </ul>
+        <a href="#contact" class="btn-primary" style="width:100%;text-align:center;display:block;">Book now</a>
+      </div>
+
+      <div class="price-card">
+        <div class="price-name">MVP Build</div>
+        <div class="price-amount"><span>$</span>299</div>
+        <div class="price-note">fixed scope · delivered in 72h</div>
+        <ul class="price-features">
+          <li>Landing page or web app MVP</li>
+          <li>VPS deployment included</li>
+          <li>AI integration (if needed)</li>
+          <li>Mobile-first responsive</li>
+          <li>Source code yours</li>
+          <li>2-week support</li>
+        </ul>
+        <a href="#contact" class="btn-ghost" style="width:100%;text-align:center;display:block;">Discuss project</a>
+      </div>
+    </div>
+
+    <div class="payment-row">
+      <span class="payment-label">Accepted payments:</span>
+      <span class="payment-badge paypal">PayPal</span>
+      <span class="payment-badge crypto">Bitcoin</span>
+      <span class="payment-badge usdt">USDT</span>
+      <span class="payment-badge crypto">ETH</span>
+      <span class="payment-badge" style="border-color:#8a2be244;color:#8a2be2;">Other crypto</span>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-glow"></div>
+  <p class="section-label">// let's talk</p>
+  <h2>Ready to <em>actually</em><br>fix it?</h2>
+  <p>30-minute call. Free. No obligation. I'll tell you exactly what's wrong and how to fix it.</p>
+  <a href="https://wa.me/15722081823?text=Hi,%20I%20found%20your%20site%20and%20need%20help%20with%20my%20website" class="btn-primary" style="font-size:0.9rem;padding:1.1rem 2.5rem;">
+    Book discovery call →
+  </a>
+
+  <div class="terminal" style="max-width:500px;margin:3rem auto 0;text-align:left;">
+    <span class="line"><span class="prompt">$ </span><span class="cmd">contact --method all</span></span>
+    <span class="line"><span class="out">WhatsApp: wa.me/15722081823</span></span>
+    <span class="line"><span class="out">Telegram: @legioneternity</span></span>
+    <span class="line"><span class="out">Website:  mistacks.lol</span></span>
+    <span class="line"><span class="success">✓ Response time: Response time: &lt; 4 hourslt; 2 hours</span></span>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 Legión Digital — Remote-first, global reach.</p>
+  <div class="footer-links">
+    <a href="#pain">Problems</a>
+    <a href="#services">Services</a>
+    <a href="#pricing">Pricing</a>
+    <a href="#contact">Contact</a>
+  </div>
+</footer>
+
+</body>
+</html>
