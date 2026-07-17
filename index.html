@@ -160,7 +160,7 @@
 
   /* CTA */
   .cta-section { padding: 8rem 3rem; text-align: center; position: relative; overflow: hidden; }
-  .cta-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); }
+  .cta-glow { position: absolute; width: 500px; height: 500px; background: radial-gradient(circle, rgba(0,255,136,0.05) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); pointer-events: none; }
   .cta-section h2 { font-size: clamp(2.2rem, 5vw, 4.5rem); font-weight: 800; letter-spacing: -0.04em; line-height: 1.1; margin-bottom: 1.5rem; position: relative; }
   .cta-section h2 em { font-style: normal; color: var(--accent); }
   .cta-section > p { font-size: 1rem; color: var(--text-dim); margin-bottom: 2.5rem; position: relative; }
@@ -259,7 +259,7 @@
       <button class="lang-btn" onclick="setLang('es')">ES</button>
       <button class="lang-btn" onclick="setLang('pt')">PT</button>
     </li>
-    <li><a href="#" class="nav-cta" target="_blank" rel="noopener" data-i18n="navCta" data-wa-channel="global" data-wa-msg="discovery">Book a Call</a></li>
+    <li><a href="https://wa.me/15722081823?text=Hi%2C%20I%20want%20to%20book%20a%20free%20discovery%20call" class="nav-cta" target="_blank" rel="noopener" data-i18n="navCta">Book a Call</a></li>
   </ul>
   <div class="hamburger" id="hamburger" onclick="toggleMenu()">
     <span></span><span></span><span></span>
@@ -286,7 +286,7 @@
   <div class="hero-glow"></div>
   <div class="hero-content">
     <div class="hero-tag" data-i18n="heroTag">⚡ Available now — Remote, global</div>
-    <h1 data-i18n="heroH1">We fix what your<br><span class="strike">last dev</span><br><em>couldn't.</em></h1>
+    <h1 data-i18n="heroH1">I fix what your<br><span class="strike">last dev</span><br><em>couldn't.</em></h1>
     <p class="hero-sub" data-i18n="heroSub">VPS setup, website security, and fast MVPs for founders who need it done right — not just done. Pay with crypto or PayPal.</p>
     <div class="hero-actions">
       <a href="https://wa.me/15722081823?text=Hi%2C%20I%20want%20to%20book%20a%20free%20discovery%20call" class="btn-primary" target="_blank" rel="noopener" data-i18n="heroCta1">Book Free Discovery Call →</a>
@@ -317,10 +317,10 @@
 <!-- SERVICES -->
 <section class="services" id="services">
   <div class="services-inner">
-    <p class="section-label" data-i18n="srvLabel">// what we do</p>
+    <p class="section-label" data-i18n="srvLabel">// what I do</p>
     <h2 class="section-title" data-i18n="srvTitle">Services</h2>
     <div class="services-grid">
-      <div class="service-item"><div class="service-number">01 —</div><h3 data-i18n="s1t">Website Rescue</h3><p data-i18n="s1d">Hacked site, broken layout, Google penalty. We diagnose, clean, and harden it. Back online within 24 hours.</p><div class="service-tags"><span class="tag">WordPress</span><span class="tag">Malware removal</span><span class="tag">SSL</span><span class="tag">Hardening</span></div></div>
+      <div class="service-item"><div class="service-number">01 —</div><h3 data-i18n="s1t">Website Rescue</h3><p data-i18n="s1d">Hacked site, broken layout, Google penalty. I diagnose, clean, and harden it. Back online within 24 hours.</p><div class="service-tags"><span class="tag">WordPress</span><span class="tag">Malware removal</span><span class="tag">SSL</span><span class="tag">Hardening</span></div></div>
       <div class="service-item"><div class="service-number">02 —</div><h3 data-i18n="s2t">VPS Setup & Management</h3><p data-i18n="s2d">From blank droplet to production server. Nginx, SSL, Docker, firewalls, backups — configured and documented.</p><div class="service-tags"><span class="tag">Ubuntu</span><span class="tag">Nginx</span><span class="tag">Docker</span><span class="tag">Cloudflare</span></div></div>
       <div class="service-item"><div class="service-number">03 —</div><h3 data-i18n="s3t">Privacy Infrastructure</h3><p data-i18n="s3d">Self-hosted email, VPN, analytics, and storage. Your data, your servers, zero Big Tech dependency.</p><div class="service-tags"><span class="tag">WireGuard</span><span class="tag">Mailcow</span><span class="tag">Plausible</span><span class="tag">Nextcloud</span></div></div>
       <div class="service-item"><div class="service-number">04 —</div><h3 data-i18n="s4t">MVP Development</h3><p data-i18n="s4d">From your idea to a working product in days. Landing page, web app, or automation — scoped tight, built fast.</p><div class="service-tags"><span class="tag">React</span><span class="tag">Node.js</span><span class="tag">AI-powered</span><span class="tag">72h delivery</span></div></div>
@@ -333,10 +333,10 @@
   <p class="section-label" data-i18n="procLabel">// how it works</p>
   <h2 class="section-title" data-i18n="procTitle">Simple process,<br>fast results.</h2>
   <div class="process-steps">
-    <div class="step"><div class="step-num">01</div><div class="step-text"><h3 data-i18n="st1t">Discovery Call</h3><p data-i18n="st1d">30 min, free. You explain the problem. We tell you exactly how I'd fix it and what it'll cost.</p></div></div>
+    <div class="step"><div class="step-num">01</div><div class="step-text"><h3 data-i18n="st1t">Discovery Call</h3><p data-i18n="st1d">30 min, free. You explain the problem. I tell you exactly how I'd fix it and what it'll cost.</p></div></div>
     <div class="step"><div class="step-num">02</div><div class="step-text"><h3 data-i18n="st2t">Proposal</h3><p data-i18n="st2d">Scoped proposal within 24h. Fixed price, clear deliverables. No hourly billing surprises.</p></div></div>
-    <div class="step"><div class="step-num">03</div><div class="step-text"><h3 data-i18n="st3t">Build & Deliver</h3><p data-i18n="st3d">We work. You get updates. Delivery in agreed timeline — usually 24–72h for urgent fixes.</p></div></div>
-    <div class="step"><div class="step-num">04</div><div class="step-text"><h3 data-i18n="st4t">Handoff</h3><p data-i18n="st4d">Full documentation. Everything you need to maintain it yourself — or keep us on retainer.</p></div></div>
+    <div class="step"><div class="step-num">03</div><div class="step-text"><h3 data-i18n="st3t">Build & Deliver</h3><p data-i18n="st3d">I work. You get updates. Delivery in agreed timeline — usually 24–72h for urgent fixes.</p></div></div>
+    <div class="step"><div class="step-num">04</div><div class="step-text"><h3 data-i18n="st4t">Handoff</h3><p data-i18n="st4d">Full documentation. Everything you need to maintain it yourself — or keep me on retainer.</p></div></div>
   </div>
   <div class="terminal">
     <span class="line"><span class="prompt">$ </span><span class="cmd">diagnose --site yoursite.com</span></span>
@@ -369,7 +369,10 @@
           <li data-i18n="pl1f4">Written report of findings</li>
           <li data-i18n="pl1f5">7-day follow-up support</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20Quick%20Fix%20%28%2449%29." class="btn-ghost" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnStart">Get started</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20Quick%20Fix%20%28%2449%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Get started</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20Quick%20Fix%20%28%2449%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
       <div class="price-card featured">
         <div class="price-badge" data-i18n="badgePop">Most Popular</div>
@@ -384,7 +387,10 @@
           <li data-i18n="pl2f5">SSL renewed & forced HTTPS</li>
           <li data-i18n="pl2f6">30-day re-infection guarantee</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Site%20Rescue%20%28%24149%29." class="btn-primary" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnBook">Book now</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Site%20Rescue%20%28%24149%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Book now</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20Resgate%20de%20Site%20%28%24149%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
       <div class="price-card">
         <div class="price-name" data-i18n="pl3name">MVP Build</div>
@@ -398,7 +404,10 @@
           <li data-i18n="pl3f5">AI integration available</li>
           <li data-i18n="pl3f6">Source code 100% yours</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20MVP%20Build%20%28%24299%29." class="btn-ghost" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnDiscuss">Discuss project</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20MVP%20Build%20%28%24299%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Discuss project</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20MVP%20Build%20%28%24299%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
     </div>
 
@@ -419,7 +428,10 @@
           <li data-i18n="ph1f4">UFW firewall enabled</li>
           <li data-i18n="ph1f5">Monthly health check</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Starter%20Hosting%20%28%2475%20setup%20%2B%20%2435%2Fmo%29." class="btn-ghost" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnStart">Get started</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Starter%20Hosting%20%28%2475%20setup%20%2B%20%2435%2Fmo%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Get started</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20Hosting%20Starter%20%28%2475%20setup%20%2B%20%2435%2Fm%C3%AAs%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
       <div class="price-card featured">
         <div class="price-badge" data-i18n="badgeVal">Best Value</div>
@@ -438,7 +450,10 @@
           <li data-i18n="ph2f5">Anti-DDoS basic layer</li>
           <li data-i18n="ph2f6">Priority support response</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Business%20Hosting%20%28%24120%20setup%20%2B%20%2460%2Fmo%29." class="btn-primary" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnBook">Book now</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20Business%20Hosting%20%28%24120%20setup%20%2B%20%2460%2Fmo%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Book now</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20Hosting%20Business%20%28%24120%20setup%20%2B%20%2460%2Fm%C3%AAs%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
       <div class="price-card">
         <div class="price-name" data-i18n="ph3name">Pro</div>
@@ -456,7 +471,10 @@
           <li data-i18n="ph3f5">WebView / app-backend ready</li>
           <li data-i18n="ph3f6">24h priority response</li>
         </ul>
-        <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20Pro%20Hosting%20plan%20%28%24220%20setup%20%2B%20%24110%2Fmo%29." class="btn-ghost" style="width:100%;text-align:center;" target="_blank" rel="noopener" data-i18n="btnDiscuss">Discuss project</a>
+        <div style="display:flex;flex-direction:column;gap:0.5rem;margin-top:auto;">
+          <a href="https://wa.me/15722081823?text=Hi%2C%20I%27m%20interested%20in%20the%20Pro%20Hosting%20plan%20%28%24220%20setup%20%2B%20%24110%2Fmo%29." class="btn-primary" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇺🇸🇪🇸 EN / ES — Discuss project</a>
+          <a href="https://wa.me/5595984395258?text=Oi%2C%20tenho%20interesse%20no%20Hosting%20Pro%20%28%24220%20setup%20%2B%20%24110%2Fm%C3%AAs%29." class="btn-ghost" style="width:100%;text-align:center;font-size:0.72rem;" target="_blank" rel="noopener">🇧🇷 PT — Falar com Ismael</a>
+        </div>
       </div>
     </div>
 
@@ -476,23 +494,23 @@
   <div class="cta-glow"></div>
   <p class="section-label" data-i18n="ctaLabel">// let's talk</p>
   <h2>Ready to <em data-i18n="ctaEm">actually</em><br><span data-i18n="ctaH2">fix it?</span></h2>
-  <p data-i18n="ctaSub">30-minute call. Free. No obligation. We'll tell you exactly what's wrong and how to fix it.</p>
+  <p data-i18n="ctaSub">30-minute call. Free. No obligation. I'll tell you exactly what's wrong and how to fix it.</p>
 
   <div class="contact-buttons">
     <div class="contact-agent">
-      <span class="contact-agent-name" data-i18n="agent1name">— Global · EN/ES</span>
+      <span class="contact-agent-name" data-i18n="agent1name">— Main support</span>
       <a href="https://wa.me/15722081823?text=Hi%2C%20I%20want%20a%20free%20site%20diagnosis." class="btn-primary" target="_blank" rel="noopener" data-i18n="ctaCta">Book discovery call →</a>
     </div>
     <div class="contact-agent">
-      <span class="contact-agent-name">— Brasil 🇧🇷 · PT</span>
-      <a href="https://wa.me/559584395258?text=Oi%2C%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20site." class="btn-ghost" target="_blank" rel="noopener" data-i18n="ctaCta2">Contactar Brasil → / Contact Brazil →/Falar com Brasil →</a>
+      <span class="contact-agent-name">— Ismael · Brasil 🇧🇷</span>
+      <a href="https://wa.me/5595984395258?text=Oi%2C%20quero%20um%20diagn%C3%B3stico%20gratuito%20do%20meu%20site." class="btn-ghost" target="_blank" rel="noopener" data-i18n="ctaCta2">Falar com Ismael →</a>
     </div>
   </div>
 
   <div class="terminal" style="max-width:520px;margin:3rem auto 0;">
     <span class="line"><span class="prompt">$ </span><span class="cmd">contact --method all</span></span>
-    <span class="line"><span class="out">Chanel: GLobal:  wa.me/15722081823</span></span>
-    <span class="line"><span class="out">Chanel: Brasil:  wa.me/559584395258 (Brasil)</span></span>
+    <span class="line"><span class="out">Agent 1:  wa.me/15722081823</span></span>
+    <span class="line"><span class="out">Agent 2:  wa.me/5595984395258 (Ismael)</span></span>
     <span class="line"><span class="out">Telegram: @legioneternity</span></span>
     <span class="line"><span class="out">Website:  mistacks.lol</span></span>
     <span class="line"><span class="success">✓ Response time: &lt; 2 hours</span></span>
@@ -517,7 +535,7 @@ const T = {
     tick1:"Website Security",tick2:"VPS Setup",tick3:"Privacy Infrastructure",tick4:"MVP in 72h",tick5:"PayPal & Crypto",tick6:"100% Remote",
     nav1:"Problems",nav2:"Services",nav3:"Process",nav4:"Pricing",nav5:"Contact",navCta:"Book a Call",
     heroTag:"⚡ Available now — Remote, global",
-    heroH1:'I fix what your<br><span class="strike">last dev</span><br><em>couldn\'t.</em>',
+    heroH1:'We fix what your<br><span class="strike">last dev</span><br><em>couldn\'t.</em>',
     heroSub:"VPS setup, website security, and fast MVPs for founders who need it done right — not just done. Pay with crypto or PayPal.",
     heroCta1:"Book Free Discovery Call →",heroCta2:"See if this is for you",
     painLabel:"// the real problem",painTitle:"Sound familiar?",
@@ -529,15 +547,15 @@ const T = {
     p6t:"Idea stuck in your head",p6d:"You have a product idea but no tech co-founder. You need an MVP fast to validate before you invest more.",p6q:'"I need something working I can show investors next month."',
     stat1:"Average MVP delivery",stat2:"Cost for discovery call",stat3:"Cheaper than agency rates",
     srvLabel:"// what I do",srvTitle:"Services",
-    s1t:"Website Rescue",s1d:"Hacked site, broken layout, Google penalty. I diagnose, clean, and harden it. Back online within 24 hours.",
+    s1t:"Website Rescue",s1d:"Hacked site, broken layout, Google penalty. We diagnose, clean, and harden it. Back online within 24 hours.",
     s2t:"VPS Setup & Management",s2d:"From blank droplet to production server. Nginx, SSL, Docker, firewalls, backups — configured and documented.",
     s3t:"Privacy Infrastructure",s3d:"Self-hosted email, VPN, analytics, and storage. Your data, your servers, zero Big Tech dependency.",
     s4t:"MVP Development",s4d:"From your idea to a working product in days. Landing page, web app, or automation — scoped tight, built fast.",
     procLabel:"// how it works",procTitle:"Simple process,<br>fast results.",
-    st1t:"Discovery Call",st1d:"30 min, free. You explain the problem. I tell you exactly how I'd fix it and what it'll cost.",
+    st1t:"Discovery Call",st1d:"30 min, free. You explain the problem. We tell you exactly how we'd fix it and what it'll cost.",
     st2t:"Proposal",st2d:"Scoped proposal within 24h. Fixed price, clear deliverables. No hourly billing surprises.",
-    st3t:"Build & Deliver",st3d:"I work. You get updates. Delivery in agreed timeline — usually 24–72h for urgent fixes.",
-    st4t:"Handoff",st4d:"Full documentation. Everything you need to maintain it yourself — or keep me on retainer.",
+    st3t:"Build & Deliver",st3d:"We work. You get updates. Delivery in agreed timeline — usually 24–72h for urgent fixes.",
+    st4t:"Handoff",st4d:"Full documentation. Everything you need to maintain it yourself — or keep us on retainer.",
     priceLabel:"// investment",priceTitle:"Transparent pricing.<br>No surprises.",
     priceOnce:"— One-time services",priceManaged:"— Managed hosting (setup + monthly)",
     pl1name:"Quick Fix",pl1note:"one-time · delivered in 24h",pl1f1:"Full site diagnosis included",pl1f2:"Single critical issue resolved",pl1f3:"SSL, mobile fix, or speed boost",pl1f4:"Written report of findings",pl1f5:"7-day follow-up support",
@@ -551,7 +569,7 @@ const T = {
     btnStart:"Get started",btnBook:"Book now",btnDiscuss:"Discuss project",
     payLabel:"Accepted payments:",otherCrypto:"Other crypto",
     ctaLabel:"// let's talk",ctaEm:"actually",ctaH2:"fix it?",
-    ctaSub:"30-minute call. Free. No obligation. I'll tell you exactly what's wrong and how to fix it.",
+    ctaSub:"30-minute call. Free. No obligation. We'll tell you exactly what's wrong and how to fix it.",
     agent1name:"— Main support",ctaCta:"Book discovery call →",ctaCta2:"Talk to Ismael →"
   },
   es: {
@@ -569,15 +587,15 @@ const T = {
     p5t:"Preocupaciones de privacidad",p5d:"Quieres salir de Google, hospedar tu propio email, o construir infraestructura que no dependa de Big Tech.",p5q:'"Necesito una alternativa privada. No confío en mi proveedor actual con mis datos."',
     p6t:"Idea atrapada en tu cabeza",p6d:"Tienes una idea de producto pero no tienes cofundador técnico. Necesitas un MVP rápido para validar antes de invertir más.",p6q:'"Necesito algo funcionando que pueda mostrar a inversores el mes que viene."',
     stat1:"Entrega promedio de MVP",stat2:"Costo de la llamada inicial",stat3:"Más barato que una agencia",
-    srvLabel:"// qué hacemos",srvTitle:"Servicios",
-    s1t:"Rescate de Sitio Web",s1d:"Sitio hackeado, diseño roto, penalización de Google. Diagnostico, limpio y protejo. De vuelta en línea en 24 horas.",
+    srvLabel:"// qué hago",srvTitle:"Servicios",
+    s1t:"Rescate de Sitio Web",s1d:"Sitio hackeado, diseño roto, penalización de Google. Diagnosticamos, limpiamos y protegemos. De vuelta en línea en 24 horas.",
     s2t:"Configuración y Gestión de VPS",s2d:"De servidor vacío a producción. Nginx, SSL, Docker, firewalls, backups — configurado y documentado.",
     s3t:"Infraestructura de Privacidad",s3d:"Email, VPN, analítica y almacenamiento auto-hospedado. Tus datos, tus servidores, cero dependencia de Big Tech.",
     s4t:"Desarrollo de MVP",s4d:"De tu idea a un producto funcional en días. Landing page, app web o automatización — scope definido, entrega rápida.",
     procLabel:"// cómo funciona",procTitle:"Proceso simple,<br>resultados rápidos.",
-    st1t:"Llamada de descubrimiento",st1d:"30 min, gratis. Explicas el problema. Te digo exactamente cómo lo arreglaría y cuánto costaría.",
+    st1t:"Llamada de descubrimiento",st1d:"30 min, gratis. Explicas el problema. Te decimos exactamente cómo lo arreglaríamos y cuánto costaría.",
     st2t:"Propuesta",st2d:"Propuesta con scope en 24h. Precio fijo, entregables claros. Sin sorpresas de facturación por hora.",
-    st3t:"Construcción y entrega",st3d:"Trabajo. Recibes actualizaciones. Entrega en el plazo acordado — generalmente 24-72h para urgentes.",
+    st3t:"Construcción y entrega",st3d:"Trabajamos. Recibes actualizaciones. Entrega en el plazo acordado — generalmente 24-72h para urgentes.",
     st4t:"Traspaso",st4d:"Documentación completa. Todo lo que necesitas para mantenerlo tú mismo — o seguir con retainer.",
     priceLabel:"// inversión",priceTitle:"Precios transparentes.<br>Sin sorpresas.",
     priceOnce:"— Servicios únicos",priceManaged:"— Hosting gestionado (setup + mensual)",
@@ -592,7 +610,7 @@ const T = {
     btnStart:"Comenzar",btnBook:"Reservar ahora",btnDiscuss:"Hablar del proyecto",
     payLabel:"Pagos aceptados:",otherCrypto:"Otra cripto",
     ctaLabel:"// hablemos",ctaEm:"realmente",ctaH2:"arreglarlo?",
-    ctaSub:"Llamada de 30 min. Gratis. Sin compromiso. Te digo exactamente qué está mal y cómo arreglarlo.",
+    ctaSub:"Llamada de 30 min. Gratis. Sin compromiso. Te decimos exactamente qué está mal y cómo arreglarlo.",
     agent1name:"— Soporte principal",ctaCta:"Reservar llamada →",ctaCta2:"Hablar con Ismael →"
   },
   pt: {
@@ -610,15 +628,15 @@ const T = {
     p5t:"Preocupações com privacidade",p5d:"Você quer sair do Google, hospedar seu próprio email, ou construir infraestrutura que não dependa do Big Tech.",p5q:'"Preciso de uma alternativa privada. Não confio no meu provedor atual com meus dados."',
     p6t:"Ideia presa na sua cabeça",p6d:"Você tem uma ideia de produto mas não tem cofundador técnico. Precisa de um MVP rápido para validar antes de investir mais.",p6q:'"Preciso de algo funcionando que possa mostrar para investidores no mês que vem."',
     stat1:"Entrega média de MVP",stat2:"Custo da chamada inicial",stat3:"Mais barato que agências",
-    srvLabel:"// o que fazemos",srvTitle:"Serviços",
-    s1t:"Resgate de Site",s1d:"Site hackeado, layout quebrado, penalização do Google. Diagnostico, limpo e protejo. De volta online em 24 horas.",
+    srvLabel:"// o que eu faço",srvTitle:"Serviços",
+    s1t:"Resgate de Site",s1d:"Site hackeado, layout quebrado, penalização do Google. Diagnosticamos, limpamos e protegemos. De volta online em 24 horas.",
     s2t:"Configuração e Gestão de VPS",s2d:"De servidor vazio à produção. Nginx, SSL, Docker, firewalls, backups — configurado e documentado.",
     s3t:"Infraestrutura de Privacidade",s3d:"Email, VPN, analytics e armazenamento auto-hospedados. Seus dados, seus servidores, zero dependência do Big Tech.",
     s4t:"Desenvolvimento de MVP",s4d:"Da sua ideia a um produto funcionando em dias. Landing page, web app ou automação — escopo definido, entrega rápida.",
     procLabel:"// como funciona",procTitle:"Processo simples,<br>resultados rápidos.",
-    st1t:"Chamada inicial",st1d:"30 min, grátis. Você explica o problema. Digo exatamente como resolveria e quanto custaria.",
+    st1t:"Chamada inicial",st1d:"30 min, grátis. Você explica o problema. Dizemos exatamente como resolveríamos e quanto custaria.",
     st2t:"Proposta",st2d:"Proposta com escopo em 24h. Preço fixo, entregas claras. Sem surpresas de cobrança por hora.",
-    st3t:"Construção e entrega",st3d:"Trabalho. Você recebe atualizações. Entrega no prazo acordado — geralmente 24-72h para urgências.",
+    st3t:"Construção e entrega",st3d:"Trabalhamos. Você recebe atualizações. Entrega no prazo acordado — geralmente 24-72h para urgências.",
     st4t:"Entrega final",st4d:"Documentação completa. Tudo que você precisa para manter por conta própria — ou continuar com retainer.",
     priceLabel:"// investimento",priceTitle:"Preços transparentes.<br>Sem surpresas.",
     priceOnce:"— Serviços únicos",priceManaged:"— Hosting gerenciado (setup + mensal)",
@@ -633,13 +651,13 @@ const T = {
     btnStart:"Começar",btnBook:"Reservar agora",btnDiscuss:"Falar do projeto",
     payLabel:"Pagamentos aceitos:",otherCrypto:"Outra cripto",
     ctaLabel:"// vamos conversar",ctaEm:"realmente",ctaH2:"resolver?",
-    ctaSub:"Chamada de 30 min. Grátis. Sem compromisso. Digo exatamente o que está errado e como corrigir.",
+    ctaSub:"Chamada de 30 min. Grátis. Sem compromisso. Dizemos exatamente o que está errado e como corrigir.",
     agent1name:"— Suporte principal",ctaCta:"Agendar chamada →",ctaCta2:"Falar com Ismael →"
   }
 };
 
 // ─── APPLY LANGUAGE ─────────────────────────────────────────────
-function setLang(lang) {applyLang(lang); } {
+function setLang(lang) {
   const dict = T[lang] || T.en;
   document.querySelectorAll('[data-i18n]').forEach(el => {
     const key = el.getAttribute('data-i18n');
@@ -681,7 +699,7 @@ document.addEventListener('click', e => {
 });
 
 // ─── INIT ────────────────────────────────────────────────────────
-applyLang(detectLang());
+setLang(detectLang());
 </script>
 </body>
 </html>
